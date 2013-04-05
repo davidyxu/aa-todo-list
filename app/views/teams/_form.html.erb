@@ -2,7 +2,18 @@
 
 	<%= f.label :name %>
 	<%= f.text_field :name %>
-
-
+<br>
+	<% User.all.each do |user| %>
+		<%=
+			check_box_tag(
+				"team[user_ids][]",
+				user.id,
+				team.user_ids.include?(user.id),
+				:id => "user_id_#{user.id}"
+			)
+		%>
+		<%= label_tag "user_id_#{user.id}", user.name %>
+	<br>
+	<% end %>
 	<%= f.submit "Submit team" %>
 <% end %>

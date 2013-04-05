@@ -1,0 +1,9 @@
+<h1><%= @project.title %> Items</h1>
+<ol>
+	<% @project.items.each do |item| %>
+		<li><%= link_to item.title, item_path(item) %></li>
+	<% end %>
+</ol>
+
+<%= link_to "Return to #{@project.title}", project_path(@project) %>
+<%= link_to "Add item", new_project_item_path(@project) %>

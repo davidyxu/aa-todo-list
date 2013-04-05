@@ -11,7 +11,10 @@
 	<% @team.users.each do |member| %>
 		<li><%= link_to member.name, user_path(member) %>
 	<% end %>
+	<li><%= link_to "Add Member", new_team_user_path(@team) %></li>
 </ul>
 
 <%= link_to "Return to teams index", teams_path %>
+<%= link_to "Delete", team_path(@team), :method => :delete%>
+<%= link_to "Edit", edit_team_path(@team) %>
 

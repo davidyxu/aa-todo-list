@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 	def new
 		@user = User.new
+		@team_id = params[:team_id]
 	end
 	def create
 		@user = User.create!(params[:user])

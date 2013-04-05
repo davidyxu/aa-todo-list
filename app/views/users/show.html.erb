@@ -1,7 +1,9 @@
 <h1>User: <%= @user.name %></h1>
-<p> Teams:</p>
+<h3> Teams:</h3>
 <ul>
 	<% @user.teams.each do |team| %>
 		<li><%= link_to team.name, team_path(team) %></li>
 	<% end %>
 </ul>
+
+<%= link_to "Edit User", edit_user_path(@user) %>

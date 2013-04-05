@@ -1,8 +1,29 @@
-<h1> Items </h1>
+<h1> <%= @project.title %>: Items </h1>
+<p>Completed items are checked</p>
+
+<form action=<%= batch_update_project_items_url(@project.id) %> method="post">
+	<% @items.each do |item| %>
+		<input type="hidden" name="items[<%=item.id%>][completed]" value=0>
+		<input type="checkbox"
+					 name="items[<%=item.id%>][completed]"
+					 id="item_id_<%= item.id %>"
+					 value=1 
+					 <%=item.completed == 1 ? "checked" : nil %>
+		<label for "item_id_<%= item.id %>">
+			<%= link_to item.title, item_path(item) %>
+		</label>
+	<br>
+	<% end %>
+	<input type="submit" value="Submit Items">
+</form>
+<!--
 <ul>
 	<% @items.each do |item| %>
-		<li><%= link_to item.title, item_path(item) %></li>
+		<li>
+			<%= link_to item.title, item_path(item) %>
+		</li>
 	<% end %>
 </ul>
-
-<%= link_to "Add Item", new_item_path %>	
+-->
+<%= link_to "Return to project", project_path(@project.id) %>	
+<%= link_to "Add Item", new_project_item_path %>	

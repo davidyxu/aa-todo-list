@@ -2,4 +2,4 @@
 
 <%= render :partial => "form", :locals => {:project => @project } %>
 
-<%= link_to "Return to project index", projects_path %>
+<%= link_to "Return to Team Page", team_path(@project.team_id) %>

@@ -1,4 +1,4 @@
 <h1>Edit <%= @project.title %></h1>
 <%= render :partial => "form", :locals => { :project => @project } %>
 
-<%= link_to "Return to project", project_path(@project) %>
+<%= link_to "Return to Team Page", team_path(@project.team_id) %>

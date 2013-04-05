@@ -1,3 +1,5 @@
 <h1>Edit <%= @user.name %></h1>
 
 <%= render :partial => "form", :locals => { :user => @user } %>
+
+<%= link_to "Return to #{@user.name}'s' page", user_path(@user) %>

@@ -1,2 +1,29 @@
 <h1> New Item </h1>
-<%= render :partial => "form", :locals => {:item => @item} %>
+<%#= render :partial => "form", :locals => {:item => @item} %>
+<form action = <%=items_url%> method = "post">
+	<label for="title">Title</label>
+	<input type="text" name="item[title]" id="title">
+	<br>
+	<label for="description">Description</label>
+	<br>
+	<textarea name="item[description]" id="description"></textarea>
+	<br>
+	<select name="item[project_id]">
+		<% Project.all.each do |project|%>
+		<%if project.id == params[:project_id].to_i %>
+			<option value=<%=project.id%> selected>
+		<%else%>
+			<option value=<%=project.id%>>
+		<%end%>
+				<%=project.title%>
+			</option>
+		<% end %>
+	</select>
+	<br>
+	<input type="radio" checked="checked" name="item[completed]" value=0 id="Incomplete">
+	<label for="Incomplete">Incomplete</label>
+	<input type="radio" name="item[completed]" value=1 id="Complete">
+	<label for="Complete">Complete</label>
+	<br>
+	<input type="submit" value="submit item">
+</form>

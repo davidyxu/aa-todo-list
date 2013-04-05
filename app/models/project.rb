@@ -4,5 +4,5 @@ class Project < ActiveRecord::Base
   belongs_to :team
   has_many :items
 
-  validates :title, :description, :presence => true
+  validates :title, :description, :team_id, :presence => true
 end

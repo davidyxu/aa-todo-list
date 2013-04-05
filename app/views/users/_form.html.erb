@@ -1,3 +1,5 @@
+<% default_id = nil unless defined? default_id %>
+
 <%= form_for user do |f| %>
 	<%= f.label :name %>
 	<%= f.text_field :name %>
@@ -8,7 +10,7 @@
 			check_box_tag(
 				"user[team_ids][]",
 				team.id,
-				user.team_ids.include?(team.id),
+				user.team_ids.include?(team.id) || team.id == default_id,
 				:id => "team_id_#{team.id}"
 			)
 		%>

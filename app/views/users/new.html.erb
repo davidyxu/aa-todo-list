@@ -1,2 +1,9 @@
 <h1>New User</h1>
-<%= render :partial => "form", :locals => {:user => @user} %>
+<%= render :partial => "form", :locals => {:user => @user, :default_id => @team_id.to_i } %>
+
+<% if @team_id.nil? %>
+	<%= link_to "Return to User Index", users_path %>
+<%else%>
+	<%= link_to "Return to Team", team_path(@team_id) %>
+
+<%end%>

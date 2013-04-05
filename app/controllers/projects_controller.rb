@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
 	def new
 		@project = Project.new
+		@project.team_id = params[:team_id]
 	end
 
 	def create
@@ -33,5 +34,9 @@ class ProjectsController < ApplicationController
 		@project = Project.find(params[:id])
 		@project.destroy
 		redirect_to projects_path
+	end
+
+	def items
+		@project = Project.find(params[:id])
 	end
 end
