@@ -1,0 +1,8 @@
+<h1> <%= "#{@item.project.title}: #{@item.title}" %></h1>
+<p>Description: <%= @item.description %>
+	<br>
+	Item status: <%= @item.completed == 0 ? "Incomplete" : "Complete" %>
+</p>
+<%= link_to "Return to project", project_path(@item.project) %>
+<%= link_to "Edit", edit_item_path(@item) %>
+<%= link_to "Delete", item_path(@item), :method => :delete %>

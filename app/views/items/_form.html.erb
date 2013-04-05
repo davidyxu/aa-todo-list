@@ -1,0 +1,18 @@
+<%= form_for(item) do |f| %>
+	<%= f.label :title %>
+	<%= f.text_field :title %>
+	<br>
+
+	<%= f.label :description %>
+	<br>
+	<%= f.text_area :description %>
+	<br>
+	<%= f.collection_select :project_id, Project.all, :id, :title %>
+	<br>
+	<%= f.radio_button :completed, 0 %>
+	<%= f.label :completed, "Incomplete", :value => 0 %>
+	<%= f.radio_button :completed, 1 %>
+	<%= f.label :completed, "Complete", :value => 1 %>
+
+	<%= f.submit "Submit Item" %>
+<% end %>

@@ -1,0 +1,14 @@
+<%= form_for project do |f| %>
+	<%= f.label :title %>
+	<%= f.text_field :title %>
+	<br>
+
+	<%= f.label :description %>
+	<br>
+	<%= f.text_area :description %>
+	<br>
+	<%= f.label :team_id, "Team:" %>
+	<%= f.collection_select :team_id, Team.all, :id, :name %>
+
+	<%= f.submit "Submit Project" %>
+<% end %>

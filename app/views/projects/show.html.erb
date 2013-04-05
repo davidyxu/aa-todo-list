@@ -1,0 +1,15 @@
+<h1>Project: <%= @project.title %></h1>
+<p>Project Description:
+	<br>
+	<%= @project.description %>
+	<br>
+	Items:
+	<ol>
+		<% @project.items.each do |item| %>
+			<li><%= link_to item.title, item_path(item) %></li>
+		<% end %>
+	</ol>
+</p>
+<%= link_to "Return to Team Page", team_path(@project.team_id) %>
+<%= link_to "Edit", edit_project_path(@project) %>
+<%= link_to "Delete", project_path(@project), :method => :delete %>
