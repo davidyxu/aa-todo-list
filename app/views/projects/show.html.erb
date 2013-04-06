@@ -4,7 +4,7 @@
 	<%= @project.description %>
 	<br>
 	<br>
-	<%= link_to "View items", items_project_path(@project) %>
+	<%= link_to "View items", project_items_path(@project) %>
 </p>
 <%= link_to "Return to Team Page", team_path(@project.team_id) %>
 <%= link_to "Edit", edit_project_path(@project) %>

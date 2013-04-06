@@ -8,7 +8,7 @@ class ItemsController < ApplicationController
 			redirect_to item_path(@item)
 		else
 			flash.notice = "Failed to create item."
-			redirect_to new_project_item_path(@item.project_id, @item)
+			redirect_to new_project_item_path(@item.project_id)
 		end
 	end
 
@@ -42,7 +42,7 @@ class ItemsController < ApplicationController
 
 		@items = Item.where(:id => params[:items].keys.map {|id| id.to_i})
 		@items.each do |item|
-			item.completed = params[:items][item.id.to_s][:completed].to_i
+			item.completed = params[:items][item.id.to_s].to_i
 			item.save!
 		end
 		redirect_to project_items_path(params[:project_id])
